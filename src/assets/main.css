@@ -1,0 +1,94 @@
+@import './base.css';
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap");
+@font-face {
+  font-family: "Bai Jamjuree bool";
+  src: url('./font/BaiJamjuree-Bold.ttf');
+}
+
+:root {
+    --color-body: #b6cbce;
+    --color-heading: #eef3db;
+    --color-base: #033f47;
+    --color-base2: #022a30;
+    --color-brand: #e0f780;
+    --color-brand2: #deff58;
+    --sidbar-width: 240px;
+    --font-base: "Bai Jamjuree";
+}
+
+html {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-base2);
+    color: var(--color-body);
+    font-family: var(--font-base), sans-serif;
+}
+
+body{
+  width: 100vw;
+  height: 100vh;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+.sidebar-backdrop {
+    height: 100dvh;
+    background: linear-gradient(rgba(3, 63, 71, 0.8), rgba(3, 63, 71, 0.8)),
+      url('./img/backprofile.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Custom scrollbar styles */
+.scrollbar {
+  @apply overflow-y-scroll; /* Enable vertical scrolling */
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 4px; /* Width of the scrollbar */
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  @apply bg-cyan-950; /* Background of the scrollbar track */
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-amber-200 rounded; /* Color and shape of the scrollbar thumb */
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-amber-700; /* Color on hover */
+}
+
+.bg-base{
+  background-color: #033f47;
+}
+
+.text-color-base{
+  color: #022a30;
+}
+
+.link-custom {
+  font-weight: 700;
+  position: relative;
+}
+
+.link-custom::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  @apply bg-amber-200;
+  position: absolute;
+  left: 0;
+  top: 110%;
+  transition: all 0.4s;
+}
+
+.link-custom:hover::after {
+  width: 100%;
+}
