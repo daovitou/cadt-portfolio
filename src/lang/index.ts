@@ -3,7 +3,7 @@ import { createI18n } from "vue-i18n";
 const message = {
   en: {
     sidebar: {
-      home: "Home",
+      home: "Home Page",
       resume: "Resume",
       service: "Service",
       technology: "Technology",
