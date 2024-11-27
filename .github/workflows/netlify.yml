@@ -1,0 +1,36 @@
+name: Build and Deploy to Netlify
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: main
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      # ( Build to ./dist or other directory... )
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+      - name: Install dependencies
+        run: npm install
+      - name: Build Project
+        run: npm run build
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3.0
+        with:
+          publish-dir: './dist'
+          production-branch: master
+          github-token: "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"
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: false
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: "nfp_he4CtbHRJv1DJrjcuipfX9Desz2QFqEc0b91"
+          NETLIFY_SITE_ID: "d2fb1128-dd30-4c1f-9711-ebc3198f1397"
+          VITE_APP_TITLE: "VITOUDAO PORTFOLIO"
+        timeout-minutes: 1
