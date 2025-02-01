@@ -5,5 +5,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "3000:3000"
+    # ports:
+    #   - "3000:3000"
+    networks:
+      - production-network
+networks:
+  production-network:
+    name: production-network
+    external: true
